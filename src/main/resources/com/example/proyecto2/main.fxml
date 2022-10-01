@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto2.MainController">
+    <children>
+
+
+
+        <Pane fx:id="panelAgregarPregunta" layoutY="-4.0" prefHeight="415.0" prefWidth="660.0" style="-fx-background-color: #ffbf69;">
+            <children>
+                <Label layoutX="136.0" layoutY="41.0" prefHeight="45.0" prefWidth="66.0" text="Pregunta">
+                    <font>
+                        <Font name="High Tower Text" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="txtPregunta" layoutX="249.0" layoutY="51.0" prefHeight="25.0" prefWidth="246.0" />
+                <Label layoutX="136.0" layoutY="97.0" prefHeight="45.0" prefWidth="176.0" text="Tiempo limite en segundos">
+                    <font>
+                        <Font name="High Tower Text" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="txtLimiteTiempo" layoutX="347.0" layoutY="107.0" prefHeight="25.0" prefWidth="148.0" />
+                <Label layoutX="136.0" layoutY="163.0" prefHeight="45.0" prefWidth="176.0" text="Respuesta">
+                    <font>
+                        <Font name="High Tower Text" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="249.0" layoutY="163.0" prefHeight="45.0" prefWidth="176.0" text="1. verdadero (v)">
+                    <font>
+                        <Font name="High Tower Text" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="245.0" layoutY="199.0" prefHeight="45.0" prefWidth="176.0" text="2. falso (f)">
+                    <font>
+                        <Font name="High Tower Text" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="136.0" layoutY="244.0" prefHeight="45.0" prefWidth="176.0" text="La respuesta es:">
+                    <font>
+                        <Font name="High Tower Text" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="txtRespuestaPregunta" layoutX="253.0" layoutY="254.0" prefHeight="25.0" prefWidth="66.0" />
+                <Button fx:id="btnGuardarPregunta" layoutX="318.0" layoutY="346.0" mnemonicParsing="false" onAction="#onClickAgregarPregunta" text="Guardar" />
+                <Label layoutX="136.0" layoutY="289.0" prefHeight="45.0" prefWidth="176.0" text="Punteo">
+                    <font>
+                        <Font name="High Tower Text" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="txtPunteo" layoutX="253.0" layoutY="299.0" prefHeight="25.0" prefWidth="66.0" />
+            </children>
+        </Pane>
+
+        <Pane fx:id="panelNuevaEncuesta" layoutY="-4.0" prefHeight="415.0" prefWidth="660.0" style="-fx-background-color: #ffbf69;">
+            <children>
+                <Label layoutX="240.0" layoutY="15.0" prefHeight="45.0" prefWidth="204.0" text="NUEVO CUESTIONARIO">
+                    <font>
+                        <Font name="Berlin Sans FB" size="19.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="166.0" layoutY="128.0" prefHeight="120.0" prefWidth="411.0">
+                    <children>
+                        <Label prefHeight="45.0" prefWidth="81.0" text="Nombre">
+                            <font>
+                                <Font name="High Tower Text" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtNombreCuestionario" layoutX="109.0" layoutY="10.0" prefHeight="25.0" prefWidth="236.0" />
+                        <Label layoutY="55.0" prefHeight="45.0" prefWidth="81.0" text="Descripción">
+                            <font>
+                                <Font name="High Tower Text" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtDescripcionCuestionario" layoutX="109.0" layoutY="65.0" prefHeight="25.0" prefWidth="236.0" />
+                    </children>
+                </Pane>
+                <Button fx:id="btnCancelarCuestionario" layoutX="230.0" layoutY="270.0" mnemonicParsing="false" onAction="#onMainButtonClick" text="Cancelar" />
+                <Button fx:id="btnPasoDosCuestionario" layoutX="360.0" layoutY="270.0" mnemonicParsing="false" onAction="#onClickAgregar" text="Siguiente" />
+            </children>
+        </Pane>
+
+        <Pane fx:id="panelDetalleCuestionario" layoutY="-4.0" prefHeight="415.0" prefWidth="660.0" style="-fx-background-color: #ffbf69;">
+            <children>
+                <Button fx:id="btnModificarPregunta" layoutX="254.0" layoutY="90.0" mnemonicParsing="false" onAction="#onMainButtonClick" text="Modificar" />
+                <Button fx:id="btnBorrarPregunta" layoutX="364.0" layoutY="90.0" mnemonicParsing="false" onAction="#onClickRemover" text="Borrar" />
+                <TableView fx:id="tvPreguntas" layoutX="38.0" layoutY="126.0" prefHeight="196.0" prefWidth="587.0">
+                    <columns>
+                        <TableColumn fx:id="tcCorrelativoPreguntas" prefWidth="31.333324432373047" text="No." />
+                        <TableColumn fx:id="tcPregunta" prefWidth="313.3333282470703" text="Pregunta" />
+                        <TableColumn fx:id="tcRespuesta" prefWidth="79.33331298828125" text="Respuesta" />
+                        <TableColumn fx:id="tcTiempo" minWidth="0.0" prefWidth="94.0" text="Tiempo Limite" />
+                        <TableColumn fx:id="tcPunteo" prefWidth="68.6666259765625" text="Punteo" />
+                    </columns>
+                </TableView>
+                <Button fx:id="btnAgregarPregunta" layoutX="514.0" layoutY="345.0" mnemonicParsing="false" onAction="#onMainButtonClick" text="Agregar pregunta" />
+                <Button fx:id="btnTerminarPreguntas" layoutX="395.0" layoutY="345.0" mnemonicParsing="false" onAction="#onMainButtonClick" prefHeight="25.0" prefWidth="81.0" text="Terminar" />
+            </children>
+        </Pane>
+
+        <Pane fx:id="panelMenuPrincipal" layoutY="-4.0" prefHeight="415.0" prefWidth="660.0" style="-fx-background-color: #ff9f1c;">
+            <children>
+                <Label layoutX="240.0" layoutY="15.0" prefHeight="45.0" prefWidth="204.0" text="MENÚ PRINCIPAL">
+                    <font>
+                        <Font name="Berlin Sans FB" size="19.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnActivar" layoutX="104.0" layoutY="72.0" onAction="#onMainButtonClick" prefHeight="32.0" prefWidth="81.0" text="Activar" />
+                <Button fx:id="btnClonar" layoutX="209.0" layoutY="74.0" onAction="#onMainButtonClick" prefHeight="32.0" prefWidth="81.0" text="Clonar" />
+                <Button fx:id="btnEvaluar" layoutX="314.0" layoutY="73.0" onAction="#onMainButtonClick" prefHeight="32.0" prefWidth="81.0" text="Evaluar" />
+                <Button fx:id="btnTop3" layoutX="413.0" layoutY="71.0" onAction="#onMainButtonClick" prefHeight="32.0" prefWidth="81.0" text="Top 3" />
+                <Button fx:id="btnNuevaEncuesta" layoutX="543.0" layoutY="337.0" onAction="#onMainButtonClick" prefHeight="32.0" prefWidth="81.0" text="Nuevo" />
+                <TableView fx:id="tvCuestionarios" layoutX="38.0" layoutY="126.0" prefHeight="196.0" prefWidth="587.0">
+                    <columns>
+                        <TableColumn fx:id="tcCorrelativo" prefWidth="52.000003814697266" text="No." />
+                        <TableColumn fx:id="tcPin" prefWidth="118.9999771118164" text="Pin" />
+                        <TableColumn fx:id="tcNombre" prefWidth="132.33335876464844" text="Nombre" />
+                        <TableColumn fx:id="tcDescripcion" prefWidth="283.33331298828125" text="Descripción" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
